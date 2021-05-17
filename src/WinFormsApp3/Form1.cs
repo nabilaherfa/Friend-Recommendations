@@ -20,9 +20,8 @@ namespace WinFormsApp3
         private int n_account;
         private bool[,] graph;
         static List<string> map;
+        public string[] words;
 
-        // The graph that MSAGL accepts
-        // Graph viewer engine
         public Form1()
         {
             InitializeComponent();
@@ -39,18 +38,15 @@ namespace WinFormsApp3
             string filename = openFileDialog1.FileName;
             string readfile = File.ReadAllText(filename);
             textBox14.Text = filename;
-            
-            //richTextBox1.Text = readfile;
-
+          
             // memproses teks
             Regex reg_exp = new Regex("[^A-Z]");
             readfile = reg_exp.Replace(readfile, " ");
 
             // split tiap kata pada teks ke array of string.
-            string[] words = readfile.Split(
+            words = readfile.Split(
                new char[] { ' ' },
                StringSplitOptions.RemoveEmptyEntries);
-
 
             // mendapatkan unique char
             var word_query =
@@ -69,13 +65,11 @@ namespace WinFormsApp3
                 graph[map.IndexOf(words[i + 1]), map.IndexOf(words[i])] = true;
             }
 
-
             string[] mapp1 = map.ToArray();
             string[] mapp2 = map.ToArray();
 
             comboBox1.DataSource = mapp1;
             comboBox2.DataSource = mapp2;
-
 
             //MSAGL
             System.Windows.Forms.Form form = new System.Windows.Forms.Form();
@@ -89,6 +83,14 @@ namespace WinFormsApp3
                 var Edge = graphh.AddEdge(words[i], words[i + 1]);
                 Edge.Attr.ArrowheadAtTarget = Microsoft.Msagl.Drawing.ArrowStyle.None;
                 Edge.Attr.ArrowheadAtSource = Microsoft.Msagl.Drawing.ArrowStyle.None;
+                if (map.IndexOf(words[i]) % 2 == 0)
+                {
+                    graphh.FindNode(words[i]).Attr.FillColor = Microsoft.Msagl.Drawing.Color.Magenta;
+                }
+                else
+                {
+                    graphh.FindNode(words[i]).Attr.FillColor = Microsoft.Msagl.Drawing.Color.MistyRose;
+                }
             }
          
             viewer.Graph = graphh;
@@ -248,9 +250,10 @@ namespace WinFormsApp3
                         {
                             if (l[l.Count - 1] == idx_max)
                             {
-                                richTextBox4.Text += (map[l[1]]) + "\n"; //Tampilkan mutual friend
+                                richTextBox4.Text += (map[l[1]]) + ","; //Tampilkan mutual friend
                             }
                         }
+                        richTextBox4.Text += "\n"; 
                         friendRecFreq[idx_max] = 0;
                         max = friendRecFreq.Max();
                         idx_max = friendRecFreq.IndexOf(max);
@@ -318,13 +321,14 @@ namespace WinFormsApp3
                         {
                             if (l[l.Count - 1] == idx_max)
                             {
-                                richTextBox4.Text += (map[l[1]]) + "\n"; //Tampilkan mutual friend
+                                richTextBox4.Text += (map[l[1]]) + ","; //Tampilkan mutual friend
                             }
                         }
+                        richTextBox4.Text += "\n";
                         friendRecFreq[idx_max] = 0;
                         max = friendRecFreq.Max();
                         idx_max = friendRecFreq.IndexOf(max);
-                        //Console.WriteLine();
+                        //richTextBox4.Text = "\n";
                     }
                 }
             }
@@ -376,6 +380,8 @@ namespace WinFormsApp3
             richTextBox7.Text = "";
             richTextBox9.Text = "";
             richTextBox8.Text = "";
+            richTextBox10.Text = "";
+            panel4.Controls.Clear();
 
             int selectedIndex1 = comboBox2.SelectedIndex;
             Object selectedItem = comboBox2.SelectedItem;
@@ -428,16 +434,39 @@ namespace WinFormsApp3
                 richTextBox6.Text += "Nama akun : " + map[asal] + " dan " + map[tujuan];
                 if (!found || degree == -1)
                 {
-                    textBox19.Text = "Tidak ada jalur koneksi yang tersedia" + "\n" + "Anda harus memulai koneksi baru itu sendiri";
+                    textBox19.Text = "Tidak ada jalur koneksi yang tersedia.";
+                    richTextBox10.Text = "Anda harus memulai koneksi baru itu sendiri";
                 }
                 else
                 {
                     richTextBox7.Text += "degree connection : " + degree;
                     richTextBox8.Text = map[temp[0]];
-                    for (int i = 1; i < temp.Count; i++)
+                    System.Windows.Forms.Form form = new System.Windows.Forms.Form();
+                    //create a viewer object 
+                    Microsoft.Msagl.GraphViewerGdi.GViewer viewer = new Microsoft.Msagl.GraphViewerGdi.GViewer();
+                    //create a graph object 
+                    Microsoft.Msagl.Drawing.Graph graphhh = new Microsoft.Msagl.Drawing.Graph("graphhh");
+                    //create the graph content 
+                    for (int i = 0; i < words.Length; i += 2)
+                    {
+                        
+                        var Edgee = graphhh.AddEdge(words[i], words[i + 1]);
+                        Edgee.Attr.ArrowheadAtTarget = Microsoft.Msagl.Drawing.ArrowStyle.None;
+                        Edgee.Attr.ArrowheadAtSource = Microsoft.Msagl.Drawing.ArrowStyle.None;
+                        
+                    }
+                    for(int i = 1; i < temp.Count; i++)
                     {
                         richTextBox9.Text += " -> " + map[temp[i]];
+                        graphhh.FindNode(map[temp[i]]).Attr.FillColor = Microsoft.Msagl.Drawing.Color.Magenta;
+                        graphhh.FindNode(map[temp[0]]).Attr.FillColor = Microsoft.Msagl.Drawing.Color.Magenta;
                     }
+                    viewer.Graph = graphhh;
+                    //associate the viewer with the form 
+                    panel4.SuspendLayout();
+                    viewer.Dock = System.Windows.Forms.DockStyle.Fill;
+                    panel4.Controls.Add(viewer);
+                    panel4.ResumeLayout();
                     //Console.WriteLine();
                 }
             }
@@ -525,16 +554,39 @@ namespace WinFormsApp3
                 richTextBox6.Text += "Nama akun : " + textBox15.Text + " dan " + selectedItem.ToString();
                 if (!found || degree == -1)
                 {
-                    textBox19.Text += "Tidak ada jalur koneksi yang tersedia" + "\n" + "Anda harus memulai koneksi baru itu sendiri";
+                    textBox19.Text += "Tidak ada jalur koneksi yang tersedia";
+                    richTextBox10.Text = "Anda harus memulai koneksi baru itu sendiri";
                 }
                 else
                 {
                     richTextBox7.Text += "degree connection : " + degree;
                     richTextBox8.Text = map[temp[0]];
+                    System.Windows.Forms.Form form = new System.Windows.Forms.Form();
+                    //create a viewer object 
+                    Microsoft.Msagl.GraphViewerGdi.GViewer viewer = new Microsoft.Msagl.GraphViewerGdi.GViewer();
+                    //create a graph object 
+                    Microsoft.Msagl.Drawing.Graph graphhh = new Microsoft.Msagl.Drawing.Graph("graphhh");
+                    //create the graph content 
+                    for (int i = 0; i < words.Length; i += 2)
+                    {
+
+                        var Edgee = graphhh.AddEdge(words[i], words[i + 1]);
+                        Edgee.Attr.ArrowheadAtTarget = Microsoft.Msagl.Drawing.ArrowStyle.None;
+                        Edgee.Attr.ArrowheadAtSource = Microsoft.Msagl.Drawing.ArrowStyle.None;
+
+                    }
                     for (int i = 1; i < temp.Count; i++)
                     {
-                        richTextBox9.Text = " -> " + map[temp[i]];
+                        richTextBox9.Text += " -> " + map[temp[i]];
+                        graphhh.FindNode(map[temp[i]]).Attr.FillColor = Microsoft.Msagl.Drawing.Color.Magenta;
+                        graphhh.FindNode(map[temp[0]]).Attr.FillColor = Microsoft.Msagl.Drawing.Color.Magenta;
                     }
+                    viewer.Graph = graphhh;
+                    //associate the viewer with the form 
+                    panel4.SuspendLayout();
+                    viewer.Dock = System.Windows.Forms.DockStyle.Fill;
+                    panel4.Controls.Add(viewer);
+                    panel4.ResumeLayout();
                     //Console.WriteLine();
                 }
 

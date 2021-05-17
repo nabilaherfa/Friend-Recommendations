@@ -71,6 +71,10 @@ namespace WinFormsApp3
             this.richTextBox7 = new System.Windows.Forms.RichTextBox();
             this.richTextBox8 = new System.Windows.Forms.RichTextBox();
             this.richTextBox9 = new System.Windows.Forms.RichTextBox();
+            this.richTextBox10 = new System.Windows.Forms.RichTextBox();
+            this.panel4 = new System.Windows.Forms.Panel();
+            this.textBox18 = new System.Windows.Forms.TextBox();
+            this.textBox20 = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
@@ -272,7 +276,7 @@ namespace WinFormsApp3
             this.richTextBox2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(51)))), ((int)(((byte)(73)))));
             this.richTextBox2.Location = new System.Drawing.Point(294, 567);
             this.richTextBox2.Name = "richTextBox2";
-            this.richTextBox2.Size = new System.Drawing.Size(445, 59);
+            this.richTextBox2.Size = new System.Drawing.Size(148, 178);
             this.richTextBox2.TabIndex = 18;
             this.richTextBox2.Text = "";
             this.richTextBox2.TextChanged += new System.EventHandler(this.richTextBox2_TextChanged);
@@ -395,9 +399,9 @@ namespace WinFormsApp3
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.Color.MediumTurquoise;
-            this.panel3.Location = new System.Drawing.Point(296, 200);
+            this.panel3.Location = new System.Drawing.Point(296, 232);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(884, 209);
+            this.panel3.Size = new System.Drawing.Size(443, 177);
             this.panel3.TabIndex = 20;
             // 
             // textBox14
@@ -441,9 +445,9 @@ namespace WinFormsApp3
             this.richTextBox3.BackColor = System.Drawing.Color.MediumTurquoise;
             this.richTextBox3.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.richTextBox3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(51)))), ((int)(((byte)(73)))));
-            this.richTextBox3.Location = new System.Drawing.Point(294, 621);
+            this.richTextBox3.Location = new System.Drawing.Point(437, 567);
             this.richTextBox3.Name = "richTextBox3";
-            this.richTextBox3.Size = new System.Drawing.Size(445, 128);
+            this.richTextBox3.Size = new System.Drawing.Size(187, 178);
             this.richTextBox3.TabIndex = 24;
             this.richTextBox3.Text = "";
             // 
@@ -452,9 +456,9 @@ namespace WinFormsApp3
             this.richTextBox4.BackColor = System.Drawing.Color.MediumTurquoise;
             this.richTextBox4.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.richTextBox4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(51)))), ((int)(((byte)(73)))));
-            this.richTextBox4.Location = new System.Drawing.Point(499, 621);
+            this.richTextBox4.Location = new System.Drawing.Point(624, 567);
             this.richTextBox4.Name = "richTextBox4";
-            this.richTextBox4.Size = new System.Drawing.Size(240, 128);
+            this.richTextBox4.Size = new System.Drawing.Size(115, 178);
             this.richTextBox4.TabIndex = 25;
             this.richTextBox4.Text = "";
             this.richTextBox4.TextChanged += new System.EventHandler(this.richTextBox4_TextChanged);
@@ -464,9 +468,9 @@ namespace WinFormsApp3
             this.richTextBox5.BackColor = System.Drawing.Color.MediumTurquoise;
             this.richTextBox5.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.richTextBox5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(51)))), ((int)(((byte)(73)))));
-            this.richTextBox5.Location = new System.Drawing.Point(738, 649);
+            this.richTextBox5.Location = new System.Drawing.Point(294, 674);
             this.richTextBox5.Name = "richTextBox5";
-            this.richTextBox5.Size = new System.Drawing.Size(442, 96);
+            this.richTextBox5.Size = new System.Drawing.Size(445, 71);
             this.richTextBox5.TabIndex = 26;
             this.richTextBox5.Text = "";
             this.richTextBox5.TextChanged += new System.EventHandler(this.richTextBox5_TextChanged);
@@ -500,7 +504,7 @@ namespace WinFormsApp3
             this.richTextBox6.ForeColor = System.Drawing.Color.DarkSlateGray;
             this.richTextBox6.Location = new System.Drawing.Point(735, 539);
             this.richTextBox6.Name = "richTextBox6";
-            this.richTextBox6.Size = new System.Drawing.Size(445, 31);
+            this.richTextBox6.Size = new System.Drawing.Size(499, 31);
             this.richTextBox6.TabIndex = 29;
             this.richTextBox6.Text = "";
             // 
@@ -509,9 +513,9 @@ namespace WinFormsApp3
             this.textBox19.BackColor = System.Drawing.Color.MediumTurquoise;
             this.textBox19.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBox19.ForeColor = System.Drawing.Color.DarkSlateGray;
-            this.textBox19.Location = new System.Drawing.Point(738, 629);
+            this.textBox19.Location = new System.Drawing.Point(738, 632);
             this.textBox19.Name = "textBox19";
-            this.textBox19.Size = new System.Drawing.Size(442, 20);
+            this.textBox19.Size = new System.Drawing.Size(496, 20);
             this.textBox19.TabIndex = 31;
             // 
             // richTextBox7
@@ -521,7 +525,7 @@ namespace WinFormsApp3
             this.richTextBox7.ForeColor = System.Drawing.Color.DarkSlateGray;
             this.richTextBox7.Location = new System.Drawing.Point(738, 567);
             this.richTextBox7.Name = "richTextBox7";
-            this.richTextBox7.Size = new System.Drawing.Size(442, 33);
+            this.richTextBox7.Size = new System.Drawing.Size(496, 33);
             this.richTextBox7.TabIndex = 34;
             this.richTextBox7.Text = "";
             // 
@@ -544,15 +548,60 @@ namespace WinFormsApp3
             this.richTextBox9.ForeColor = System.Drawing.Color.DarkSlateGray;
             this.richTextBox9.Location = new System.Drawing.Point(798, 600);
             this.richTextBox9.Name = "richTextBox9";
-            this.richTextBox9.Size = new System.Drawing.Size(382, 26);
+            this.richTextBox9.Size = new System.Drawing.Size(436, 26);
             this.richTextBox9.TabIndex = 36;
             this.richTextBox9.Text = "";
+            // 
+            // richTextBox10
+            // 
+            this.richTextBox10.BackColor = System.Drawing.Color.MediumTurquoise;
+            this.richTextBox10.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.richTextBox10.ForeColor = System.Drawing.Color.DarkSlateGray;
+            this.richTextBox10.Location = new System.Drawing.Point(738, 652);
+            this.richTextBox10.Name = "richTextBox10";
+            this.richTextBox10.Size = new System.Drawing.Size(496, 93);
+            this.richTextBox10.TabIndex = 38;
+            this.richTextBox10.Text = "";
+            // 
+            // panel4
+            // 
+            this.panel4.BackColor = System.Drawing.Color.MediumTurquoise;
+            this.panel4.Location = new System.Drawing.Point(747, 232);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(433, 177);
+            this.panel4.TabIndex = 39;
+            // 
+            // textBox18
+            // 
+            this.textBox18.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(51)))), ((int)(((byte)(73)))));
+            this.textBox18.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBox18.ForeColor = System.Drawing.Color.Aqua;
+            this.textBox18.Location = new System.Drawing.Point(296, 206);
+            this.textBox18.Name = "textBox18";
+            this.textBox18.Size = new System.Drawing.Size(257, 20);
+            this.textBox18.TabIndex = 40;
+            this.textBox18.Text = "Visualisasi Graf dari File Eksternal";
+            // 
+            // textBox20
+            // 
+            this.textBox20.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(51)))), ((int)(((byte)(73)))));
+            this.textBox20.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBox20.ForeColor = System.Drawing.Color.Aqua;
+            this.textBox20.Location = new System.Drawing.Point(756, 206);
+            this.textBox20.Name = "textBox20";
+            this.textBox20.Size = new System.Drawing.Size(279, 20);
+            this.textBox20.TabIndex = 41;
+            this.textBox20.Text = "Visualisasi Graf Jalur Explore Friends";
             // 
             // Form1
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(51)))), ((int)(((byte)(73)))));
             this.ClientSize = new System.Drawing.Size(1246, 745);
+            this.Controls.Add(this.textBox20);
+            this.Controls.Add(this.textBox18);
+            this.Controls.Add(this.panel4);
+            this.Controls.Add(this.richTextBox10);
             this.Controls.Add(this.richTextBox9);
             this.Controls.Add(this.richTextBox8);
             this.Controls.Add(this.richTextBox7);
@@ -642,6 +691,10 @@ namespace WinFormsApp3
         private System.Windows.Forms.RichTextBox richTextBox7;
         private System.Windows.Forms.RichTextBox richTextBox8;
         private System.Windows.Forms.RichTextBox richTextBox9;
+        private System.Windows.Forms.RichTextBox richTextBox10;
+        private System.Windows.Forms.Panel panel4;
+        private System.Windows.Forms.TextBox textBox18;
+        private System.Windows.Forms.TextBox textBox20;
     }
 }
 

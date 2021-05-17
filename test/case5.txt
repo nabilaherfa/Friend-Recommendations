@@ -1,0 +1,19 @@
+19
+A D
+A E
+A I
+B D
+B F
+C E
+C H
+C J
+D E
+D J
+E H
+F H
+F I
+G H
+H I
+H A
+H B
+H D
