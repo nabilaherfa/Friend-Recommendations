@@ -1,7 +1,3 @@
-***************************************
-Tugas Besar 2 IF2211 Strategi Algoritma
-***************************************
-
 1. Algoritma yang diimplementasikan
    Program ini menggunakan algoritma DFS dan BFS untuk melakukan
     * Friend Recommendation
@@ -30,11 +26,6 @@ Tugas Besar 2 IF2211 Strategi Algoritma
    6. Run Form1.cs 
    7. Form akan muncul
 
-4. Author
-   * Rahmah Khoirussyifa' Nurdini (13519013)
-   * Akifa Nabil Ufairah (13519179)
-   * Nabilah Erfariani (13519181)
-   * Kelas 04
 
 
 
